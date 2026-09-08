@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме: Бавтот Виктория Юрьевна</title>
+    <style>
+        /* Стили для красивого отображения резюме */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #f5f7fa 0%, #e6ecf5 100%);
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+        .resume-card {
+            max-width: 900px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -8px rgba(0, 20, 40, 0.25), 0 8px 20px rgba(0,0,0,0.08);
+            padding: 40px 45px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(2px);
+        }
+        /* шапка */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #2b3a67;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+        .name-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #1a2639;
+            line-height: 1.2;
+        }
+        .name-title .badge {
+            display: inline-block;
+            background: #2b3a67;
+            color: white;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 6px 18px;
+            border-radius: 40px;
+            margin-top: 8px;
+            letter-spacing: 0.3px;
+        }
+        .univ-tag {
+            background: #eef2f7;
+            padding: 8px 18px;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #1e2b41;
+            font-size: 1rem;
+            border: 1px solid #cdd9e9;
+        }
+        /* сетка */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+        /* левая колонка */
+        .sidebar {
+            background: #f8faff;
+            padding: 22px 20px;
+            border-radius: 28px;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .sidebar-section {
+            margin-bottom: 28px;
+        }
+        .sidebar-section h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2b3a67;
+            border-bottom: 2px solid rgba(43, 58, 103, 0.2);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .skill-item, .lang-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+        .skill-item .label, .lang-item .label {
+            font-weight: 600;
+            color: #1f2a41;
+            min-width: 60px;
+            font-size: 0.95rem;
+        }
+        .skill-item .value, .lang-item .value {
+            color: #2e3b5c;
+            font-weight: 500;
+            background: white;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+        .progress-badge {
+            background: #e3eaf3;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1f2a41;
+        }
+        .quality-list {
+            list-style: none;
+            padding: 0;
+        }
+        .quality-list li {
+            background: white;
+            padding: 8px 16px;
+            margin-bottom: 8px;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #1a2639;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+            border: 1px solid #e6edf6;
+            font-size: 0.95rem;
+        }
+        .quality-list li::before {
+            content: "✦ ";
+            color: #2b3a67;
+            font-weight: 700;
+        }
+        .sport-badge {
+            background: #d9e2f0;
+            padding: 6px 16px;
+            border-radius: 40px;
+            display: inline-block;
+            font-weight: 600;
+            color: #1a2639;
+            margin-top: 4px;
+        }
+        /* правая колонка */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .section-card {
+            background: #fafcff;
+            padding: 18px 22px;
+            border-radius: 28px;
+            border: 1px solid #e9eff8;
+        }
+        .section-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e2b41;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .section-card h3 span {
+            background: #2b3a67;
+            color: white;
+            font-size: 0.9rem;
+            padding: 0 14px;
+            border-radius: 60px;
+            line-height: 26px;
+        }
+        .course-item {
+            background: white;
+            border-radius: 20px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border-left: 5px solid #2b3a67;
+        }
+        .course-item strong {
+            font-size: 1.05rem;
+            color: #0e1a2b;
+        }
+        .course-item .meta {
+            display: block;
+            margin-top: 8px;
+            color: #3d4e70;
+            font-weight: 500;
+            background: #eef4fc;
+            padding: 4px 16px;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        .code-block {
+            background: #1e2638;
+            color: #e3eaf5;
+            padding: 14px 20px;
+            border-radius: 20px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.9rem;
+            margin-top: 18px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            border: 1px solid #3c4a66;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+            line-height: 1.6;
+        }
+        .code-block .comment {
+            color: #7e8aa8;
+        }
+        .code-block .keyword {
+            color: #c7d6ff;
+            font-weight: 600;
+        }
+        .code-block .string {
+            color: #b3d9a8;
+        }
+        hr {
+            border: none;
+            border-top: 2px dashed #d7e0ec;
+            margin: 12px 0;
+        }
+        .footer-note {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #4b5d7a;
+            border-top: 1px solid #e3eaf3;
+            padding-top: 18px;
+        }
+        @media (max-width: 700px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .resume-card { padding: 25px; }
+            .name-title h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-card">
+        <!-- ШАПКА -->
+        <div class="header">
+            <div class="name-title">
+                <h1>Бавтот Виктория<br>Юрьевна</h1>
+                <div class="badge">📍 Полоцк · студентка</div>
+            </div>
+            <div class="univ-tag">
+                🏛️ Полоцкий государственный<br>университет им. Евфросинии Полоцкой
+            </div>
+        </div>
+
+        <!-- ОСНОВНАЯ СЕТКА -->
+        <div class="grid-2">
+            <!-- ЛЕВАЯ КОЛОНКА: личное, языки, качества, спорт -->
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3>👤 Личное</h3>
+                    <ul class="quality-list">
+                        <li>Целеустремлённая</li>
+                        <li>Добрая</li>
+                        <li>Ответственная</li>
+                        <li>Командный игрок</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>💻 Языки программирования</h3>
+                    <div class="skill-item">
+                        <span class="label">C++</span>
+                        <span class="value">продвинутый</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="label">C#</span>
+                        <span class="value">средний</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="label">Python</span>
+                        <span class="value">начальный</span>
+                    </div>
+                    <div style="margin-top: 12px; background: #eef3fb; padding: 8px 14px; border-radius: 60px; font-size:0.9rem;">
+                        ⚡ <strong>Git</strong> · базовые навыки
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>🏐 Спорт</h3>
+                    <div class="sport-badge">Волейбол · игрок</div>
+                    <div style="margin-top: 8px; font-size:0.95rem; color: #25345a;">
+                        Активный участник университетских<br>соревнований
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>📚 Образование</h3>
+                    <div style="background: white; border-radius: 20px; padding: 12px 16px;">
+                        <strong>Полоцкий государственный университет</strong>
+                        <div style="font-size:0.9rem; margin-top:4px; color: #2b3a67;">им. Евфросинии Полоцкой</div>
+                        <div style="font-size:0.85rem; color: #4d5f7f;">2025 – настоящее время</div>
+                        <div style="margin-top: 6px; background: #e9f0fa; padding: 4px 12px; border-radius: 40px; display:inline-block; font-weight:500;">Информационные системы</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: основное содержание -->
+            <div class="main-content">
+                <!-- О себе -->
+                <div class="section-card">
+                    <h3>🧑‍💻 Обо мне</h3>
+                    <p style="font-size:1rem; line-height:1.6; color: #1d2a41;">
+                        Студентка Полоцкого государственного университета имени Евфросинии Полоцкой.
+                        Увлечена разработкой, постоянно совершенствую навыки в C++ и C#.
+                        Сочетаю академическую деятельность с активным спортом (волейбол).
+                        Целеустремлённая, добрая, легко нахожу общий язык в команде.
+                    </p>
+                </div>
+
+                <!-- Курсовая работа + код -->
+                <div class="section-card">
+                    <h3>📘 Курсовая работа <span>2025</span></h3>
+                    <div class="course-item">
+                        <strong>«Однотабличная база данных «Сотрудники»</strong>
+                        <span class="meta">🗂️ C++ / SQLite</span>
+                        <div style="margin-top: 12px; font-size:0.96rem; color: #1f2e4a;">
+                            Разработала консольное приложение для управления сотрудниками:
+                            добавление, удаление, поиск, фильтрация по отделам и стажу.
+                            Реализована работа с файлом базы данных (SQLite) и интерфейс командной строки.
+                        </div>
+                    </div>
+
+                    <!-- Фрагмент кода (стилизованный) -->
+                    <div class="code-block">
+                        <span class="comment">// Фрагмент: структура сотрудника (C++)</span>
+                        <span class="keyword">struct</span> Employee {
+                            <span class="keyword">int</span> id;
+                            <span class="keyword">std::string</span> name;
+                            <span class="keyword">std::string</span> department;
+                            <span class="keyword">int</span> experience; <span class="comment">// лет</span>
+                        };
+
+                        <span class="comment">// добавление записи</span>
+                        <span class="keyword">void</span> addEmployee(SQLite::Database& db, <span class="keyword">const</span> Employee& emp) {
+                            <span class="keyword">char</span> sql[512];
+                            snprintf(sql, <span class="keyword">sizeof</span>(sql),
+                                <span class="string">"INSERT INTO employees (name, department, experience) VALUES ('%s', '%s', %d);"</span>,
+                                emp.name.c_str(), emp.department.c_str(), emp.experience);
+                            db.exec(sql);
+                        }
+                    </div>
+                </div>
+
+                <!-- Дополнительные проекты / навыки -->
+                <div class="section-card" style="background:#f5f9ff;">
+                    <h3>🛠️ Дополнительно</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                        <span style="background: white; padding: 6px 18px; border-radius: 60px; border:1px solid #ccd9ec;">📊 Базы данных (SQL)</span>
+                        <span style="background: white; padding: 6px 18px; border-radius: 60px; border:1px solid #ccd9ec;">⚙️ ООП</span>
+                        <span style="background: white; padding: 6px 18px; border-radius: 60px; border:1px solid #ccd9ec;">📁 Git</span>
+                        <span style="background: white; padding: 6px 18px; border-radius: 60px; border:1px solid #ccd9ec;">🧩 Алгоритмы</span>
+                    </div>
+                    <hr>
+                    <div style="font-size:0.95rem; color:#1e2f4a;">
+                        <strong>🏐 Волейбол:</strong> играю в сборной университета, развиваю командный дух и стратегическое мышление.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- футер (контакт) -->
+        <div class="footer-note">
+            📧 v.bavtot@example.com  ·  github.com/victoria-dev  ·  Полоцк, 2026
+        </div>
+    </div>
+</body>
+</html>
